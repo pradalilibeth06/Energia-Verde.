@@ -1,0 +1,475 @@
+/*Configuración básica general*/
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html{
+    font-size: 16px;
+}
+
+
+body{
+    line-height: 1.6;
+    color:#333;
+    background-color: rgb(194, 194, 194);
+    width: 100%;
+    max-width: 100%;
+
+}
+
+
+
+
+.container {
+    max-width: 1400px; 
+    margin: 0 auto;
+}
+
+.heading {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #fff; 
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    background: linear-gradient(to right, #74f59f, #1fdcfd); 
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+
+
+
+/* --- APERTURA DE NARRA DE NAVEGACIÓN  */
+
+.Barra {
+    background: #2c3e50;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.nav-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Menú normal (desktop) */
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.nav-links a:hover{
+    background-color: #455c73;
+}
+
+/*  Estilo para la imagen en el logo */
+
+.logo img{
+    height: 60px;
+    width: auto;
+    border-radius: 4px;
+}
+
+/* Dropdown desktop */
+.dropdown-parent {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #35495e;
+    min-width: 200px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.dropdown-parent.active .dropdown-menu {
+    display: block;
+    z-index: 1000;
+}
+
+/* Menú hamburguesa (oculto en desktop) */
+.hamburguesa {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.linea {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive para móviles de la barra */
+@media (max-width: 768px) {
+    .hamburguesa {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 50%;
+        height: calc(100vh - 60px);
+        background: #2c3e50;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .dropdown-parent {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        background: #3a4d5f;
+        box-shadow: none;
+        display: none;
+        width: 50%;
+    }
+
+    .dropdown-parent.active .dropdown-menu {
+        display: block;
+    }
+
+    /* Animación hamburguesa a X */
+    .hamburguesa.active .linea:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburguesa.active .linea:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburguesa.active .linea:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+
+
+
+/*  SECCIÓN DE CARDS */
+
+.container h1{
+    margin-top: 30px;
+}
+.card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center; 
+    gap: 20px; 
+    overflow-x: auto; 
+    padding-bottom: 20px; 
+}
+
+.card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+    overflow: hidden;
+    width: 300px; 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+    flex-shrink: 0; 
+}
+
+.card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); 
+}
+
+.card-img {
+    width: 100%;
+    height: 160px; 
+    object-fit: cover;
+    display: block;
+    clip-path: polygon(0 0, 100% 0%, 100% 66%, 0% 100%);
+}
+
+.profile-img {
+    width: 100px; 
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    top: -50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid #2c3e50;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15); 
+}
+
+.card h1 {
+    text-align: center;
+    margin-top: -30px; 
+    color: #222; 
+    font-size: 1.6em; 
+}
+
+.job-title {
+    text-align: center;
+    color: #555;
+    font-size: 0.9em; 
+    margin-bottom: 8px; 
+}
+
+.about {
+    padding: 0 15px; /* Reducimos el padding horizontal */
+    text-align: center;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 15px; /* Reducimos el margen inferior */
+    font-size: 0.95em; /* Ajustamos el tamaño de la descripción */
+}
+
+.btn {
+    display: block;
+    width: 70%; 
+    margin: 15px auto; 
+    padding: 8px 15px; 
+    background-color: #2ecc71; 
+    color: white;
+    text-decoration: none;
+    border-radius: 8px; /* Bordes más redondeados para el botón */
+    text-align: center;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em; /* Ajustamos el tamaño del texto del botón */
+}
+
+.btn:hover {
+    background-color: #27ae60; /* Un tono de verde más oscuro al pasar el ratón */
+}
+
+.social-media {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0; /* Reducimos los márgenes de las redes sociales */
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Reducimos el espacio entre los iconos */
+}
+
+.social-media a {
+    color: #333; /* Color de los iconos más oscuro */
+    font-size: 1.3em; /* Reducimos el tamaño de los iconos */
+    transition: color 0.3s ease;
+}
+
+.fa-facebook-square{
+    color: #3b5999;
+}
+
+.fa-twitter-square{
+    color: #55acee;
+}
+
+.fa-instagram{
+    color: #e6683c;
+
+}
+
+.fa-google-plus-square{
+    color: #dd4b39;
+}
+
+.fa-facebook-square:hover, 
+.fa-twitter-square:hover, 
+.fa-instagram:hover,
+.fa-google-plus-square:hover{
+    color: #45e19f;
+}
+
+
+/*  RESPONSIVE PARA LAS CARDS   */
+
+@media (max-width: 1200px) {
+    .card-wrapper {
+        gap: 25px;
+        padding: 20px 3%;
+    }
+    
+    .card {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    .card-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+    }
+    
+    .profile-img {
+        width: 90px;
+        height: 90px;
+        top: -45px;
+    }
+    
+    .card h1 {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 15px;
+        padding: 20px 2%;
+    }
+    
+    .card {
+        max-width: 100%;
+    }
+    
+    .card-img {
+        height: 140px;
+    }
+    
+    .profile-img {
+        width: 80px;
+        height: 80px;
+        top: -40px;
+    }
+    
+    .card h1 {
+        font-size: 1.3em;
+        margin-top: -25px;
+    }
+    
+    .job-title {
+        font-size: 0.85em;
+    }
+    
+    .about {
+        font-size: 0.9em;
+        padding: 0 10px;
+    }
+    
+    .btn {
+        width: 80%;
+        padding: 7px 12px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-wrapper {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 20px 10px;
+    }
+    
+    .card {
+        max-width: 100%;
+        margin: 0 10px;
+    }
+    
+    .profile-img {
+        width: 75px;
+        height: 75px;
+        top: -37px;
+    }
+    
+    .card h1 {
+        font-size: 1.3em;
+    }
+    
+    .social-media {
+        gap: 12px;
+    }
+    
+    .social-media a {
+        font-size: 1.2em;
+    }
+}
+
+/* Resto de estilos permanecen igual */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    clip-path: polygon(0 0, 100% 0%, 100% 66%, 0% 100%);
+}
+
+
+
+/*FOOTER*/
+footer{
+    background-color: #3f4449;
+    padding: 20px;
+    margin-top: 20px; /*Empuja al footer al final*/
+    border-top: 1px solid #e0e0e0;
+}
+
+
+.Credcont{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+
+.Repres{   /*CONTENEDOR DELOGOS O IMGS*/
+   display: flex;
+   justify-content: space-around;
+   gap: 40px; /*Espacio entre logos*/
+   flex-wrap: wrap; /*Para que sea responsive*/
+   
+}
+
+.Repres img{ 
+    max-width: 300px; /*Controla el ancho de l aimg*/
+    height: auto; /*Mantiene la proporción, de altura, creo*/
+    object-fit: contain; /*Evita recorte de la imagen*/
+   /* filter: grayscale(100%); /* Cambia el color del contenido de la imagen*/
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.Repres img:hover{
+   /* filter: grayscale(0%); /*Efecto al pasar el mouse, vuelven lo colores*/
+    transform: scale(1.05);
+}

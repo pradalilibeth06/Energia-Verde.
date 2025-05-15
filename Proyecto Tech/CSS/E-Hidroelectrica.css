@@ -1,0 +1,413 @@
+/*Configuración básica general*/
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html{
+    font-size: 16px;
+}
+
+
+body{
+    line-height: 1.6;
+    color:#333;
+    background-color: rgb(194, 194, 194);
+    width: 100%;
+    max-width: 100%;
+
+}
+
+/*  ENCABEZADO  */
+.hero {
+    background-image: url('/Imágenes/FondoHidroeléctrica.jfif'); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    height: 50vh;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: inline-block;
+    border-radius: 5px;
+}
+.hero h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+
+
+
+/* --- APERTURA DE NARRA DE NAVEGACIÓN  */
+
+.Barra {
+    background: #2c3e50;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.nav-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Menú normal (desktop) */
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.nav-links a:hover{
+    background-color: #455c73;
+}
+
+
+/* Dropdown desktop */
+.dropdown-parent {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #35495e;
+    min-width: 200px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.dropdown-parent.active .dropdown-menu {
+    display: block;
+    z-index: 1000;
+}
+
+/* Menú hamburguesa (oculto en desktop) */
+.hamburguesa {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.linea {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .hamburguesa {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 50%;
+        height: calc(100vh - 60px);
+        background: #2c3e50;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .dropdown-parent {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        background: #3a4d5f;
+        box-shadow: none;
+        display: none;
+        width: 50%;
+    }
+
+    .dropdown-parent.active .dropdown-menu {
+        display: block;
+    }
+
+    /* Animación hamburguesa a X */
+    .hamburguesa.active .linea:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburguesa.active .linea:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburguesa.active .linea:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+
+
+
+/*  TEXTO INFORMATIVO */
+
+.container {
+   
+    margin: 45px 45px;
+    margin-top: 3rem;
+    background-color: aliceblue;
+    padding: 40px;
+    box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.5);
+   
+
+}
+
+.TextoImg{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: justify;
+    margin-bottom: 50px;
+    padding: 30px;
+}
+
+.text{
+   text-align: justify;
+    margin-right:30px ;
+    max-width: 850px;
+}
+
+.TextoImg p{
+    margin-right: 30px;
+}
+
+.ImgEj{
+    height: 300px;
+    width: auto;
+}
+
+
+/* CSS PARA LA PARTE DE FUNCIONAMIENTO */
+.TextoImg-Func{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    padding: 30px;
+    text-align: justify;
+
+}
+
+.ImgFunc{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+.ImgFunc img{
+    height: 300px;
+    width: auto;
+    box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.ImgEj-Hvent{
+  height: 500px;
+  width: auto;
+}
+
+/* CIERRE -- CSS PARA LA PARTE DE FUNCIONAMIENTO */
+
+
+
+h2 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+
+
+
+li {
+    margin-bottom: 10px;
+}
+
+
+
+
+/*  RESPONSIVE */
+
+/* MEDIA QUERIES */
+@media (max-width: 992px) {
+    .hero {
+        padding: 60px 0;
+        justify-content: center;
+        align-content: center;
+    }
+    
+    .hero h1 {
+        font-size: 2rem; 
+    }
+
+
+    .TextoImg {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ImgEj {
+        order: 2;
+        max-width: 80%;
+    }
+
+    
+    .text {
+        margin-right: 0;
+        padding: 0 1rem;
+        margin-right: 10PX;
+    }
+
+    li{
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    .ImgFunc img {
+        max-width: 100%;
+        height: auto;
+        
+    }
+
+    
+    .TextoImg-Func {
+        padding:30px;
+        text-align: justify;
+
+    }
+
+    .ImgEj {
+        max-width: 100%;
+    }
+
+    ul {
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 40px 15px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .text {
+        min-width: 100%;
+    }
+
+    .TextoImg,
+    .TextoImg-Func {
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    
+}
+
+
+/*FOOTER*/
+footer{
+    background-color: #3f4449;
+    padding: 20px;
+    margin-top: 20px; /*Empuja al footer al final*/
+    border-top: 1px solid #e0e0e0;
+}
+
+
+.Credcont{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+
+.Repres{   /*CONTENEDOR DELOGOS O IMGS*/
+   display: flex;
+   justify-content: space-around;
+   gap: 40px; /*Espacio entre logos*/
+   flex-wrap: wrap; /*Para que sea responsive*/
+   
+}
+
+.Repres img{ 
+    max-width: 300px; /*Controla el ancho de l aimg*/
+    height: auto; /*Mantiene la proporción, de altura, creo*/
+    object-fit: contain; /*Evita recorte de la imagen*/
+   /* filter: grayscale(100%); /* Cambia el color del contenido de la imagen*/
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.Repres img:hover{
+   /* filter: grayscale(0%); /*Efecto al pasar el mouse, vuelven lo colores*/
+    transform: scale(1.05);
+}

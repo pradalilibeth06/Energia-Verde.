@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="/CSS/Calculadora.css">
+
+</head>
+<body>
+
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- 🛻 Transporte -->
+       <!-- Pregunta 1 -->
+    <div class="question-container active-question" id="q1">
+        <div class="question">🛻 ¿Cuántos kilómetros recorres semanalmente en vehículo particular?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 50)">Menos de 50 km</div>
+            <div class="option" onclick="nextQuestion(0, 150)">50-250 km</div>
+            <div class="option" onclick="nextQuestion(0, 400)">Más de 250 km</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 2 -->
+    <div class="question-container" id="q2">
+        <div class="question">🛻 ¿Tu vehículo es a gasolina, diésel, híbrido o eléctrico?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 100)">Gasolina</div>
+            <div class="option" onclick="nextQuestion(0, 80)">Diésel</div>
+            <div class="option" onclick="nextQuestion(0, 30)">Híbrido</div>
+            <div class="option" onclick="nextQuestion(0, 10)">Eléctrico</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 3 -->
+    <div class="question-container" id="q3">
+        <div class="question">🛻 ¿Compartes tu vehículo con otras personas?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 20)">Siempre</div>
+            <div class="option" onclick="nextQuestion(0, 40)">Ocasionalmente</div>
+            <div class="option" onclick="nextQuestion(0, 0)">Nunca</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 4 -->
+    <div class="question-container" id="q4">
+        <div class="question">🛻 ¿Utilizas transporte público regularmente? ¿Cuántas veces por semana?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 20)">Siempre</div>
+            <div class="option" onclick="nextQuestion(0, 40)">Ocasionalmente</div>
+            <div class="option" onclick="nextQuestion(0, 0)">Nunca</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 5 -->
+    <div class="question-container" id="q5">
+        <div class="question">🛻 ¿Tienes bicicleta o usas medios de transporte no motorizados?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 20)">Siempre</div>
+            <div class="option" onclick="nextQuestion(0, 40)">Ocasionalmente</div>
+            <div class="option" onclick="nextQuestion(0, 0)">Nunca</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 6 -->
+    <div class="question-container" id="q6">
+        <div class="question">🛻 ¿Con qué frecuencia viajas en avión al año? (nacionales e internacionales)?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 20)">Siempre</div>
+            <div class="option" onclick="nextQuestion(0, 40)">Ocasionalmente</div>
+            <div class="option" onclick="nextQuestion(0, 0)">Nunca</div>
+        </div>
+    </div>
+
+
+
+    <!-- Continuar con mismo patrón para todas las preguntas... -->
+
+    <!-- ⚡ Energía -->
+       <!-- Pregunta 7 -->
+    <div class="question-container" id="q7">
+        <div class="question">⚡ ¿Cuál es el promedio mensual de tu factura de energía eléctrica?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(1, 50)">Menos de $50</div>
+            <div class="option" onclick="nextQuestion(1, 100)">$50-$150</div>
+            <div class="option" onclick="nextQuestion(1, 200)">Más de $150</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 8 -->
+    <div class="question-container" id="q8">
+        <div class="question">⚡ ¿Tu hogar tiene paneles solares u otra fuente de energía renovable?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(1, 10)">Si, totalmente renovable</div>
+            <div class="option" onclick="nextQuestion(1, 100)">Parcialmente renovable</div>
+            <div class="option" onclick="nextQuestion(1, 200)">No, solo energía convencional</div>
+        </div>
+    </div>
+
+    <!-- Pregunta 9 -->
+<div class="question-container" id="q9">
+    <div class="question">⚡ ¿Usas gas natural, leña, electricidad u otro para cocinar o calentar agua?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(1, 50)">Gas natural</div>
+        <div class="option" onclick="nextQuestion(1, 70)">Leña/carbón</div>
+        <div class="option" onclick="nextQuestion(1, 30)">Electricidad</div>
+        <div class="option" onclick="nextQuestion(1, 40)">Otro combustible</div>
+    </div>
+</div>
+
+<!-- Pregunta 10 -->
+<div class="question-container" id="q10">
+    <div class="question">⚡ ¿Utilizas electrodomésticos de bajo consumo energético (tipo A o superior)?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(1, 20)">Sí, todos</div>
+        <div class="option" onclick="nextQuestion(1, 40)">Algunos</div>
+        <div class="option" onclick="nextQuestion(1, 60)">No</div>
+    </div>
+</div>
+
+<!-- Pregunta 11 -->
+<div class="question-container" id="q11">
+    <div class="question">⚡ ¿Apagas los aparatos electrónicos cuando no los usas o los dejas en espera?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(1, 10)">Siempre apagados</div>
+        <div class="option" onclick="nextQuestion(1, 30)">Algunos en espera</div>
+        <div class="option" onclick="nextQuestion(1, 60)">Suelo dejarlos en standby</div>
+    </div>
+</div>
+
+<!-- Pregunta 12 -->
+<div class="question-container" id="q12">
+    <div class="question">⚡ ¿Aprovechas la luz natural y evitas encender luces innecesarias?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(1, 10)">Siempre aprovecho la luz natural</div>
+        <div class="option" onclick="nextQuestion(1, 30)">A veces uso luz artificial</div>
+        <div class="option" onclick="nextQuestion(1, 60)">Frecuentemente enciendo luces</div>
+    </div>
+</div>
+
+    <!-- 🍽️ Alimentación -->
+
+      <!-- Pregunta 13 -->
+    <div class="question-container" id="q13">
+        <div class="question">🍽️ ¿Con qué frecuencia consumes carne roja a la semana?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(2, 100)">Diariamente</div>
+            <div class="option" onclick="nextQuestion(2, 60)">3-4 veces</div>
+            <div class="option" onclick="nextQuestion(2, 30)">1-2 veces</div>
+            <div class="option" onclick="nextQuestion(2, 10)">Nunca</div>
+        </div>
+    </div>
+
+    <!-- 🍽️ Pregunta 14 -->
+<div class="question-container" id="q14">
+    <div class="question">🍽️ ¿Consumes productos lácteos con regularidad?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(2, 40)">Diariamente</div>
+        <div class="option" onclick="nextQuestion(2, 25)">3-4 veces/semana</div>
+        <div class="option" onclick="nextQuestion(2, 15)">Ocasionalmente</div>
+        <div class="option" onclick="nextQuestion(2, 5)">Nunca (vegano)</div>
+    </div>
+</div>
+
+<!-- 🍽️ Pregunta 15 -->
+<div class="question-container" id="q15">
+    <div class="question">🍽️ ¿Incluyes frutas, verduras y legumbres en tu dieta semanal?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(2, 10)">7+ porciones diarias</div>
+        <div class="option" onclick="nextQuestion(2, 20)">4-6 porciones</div>
+        <div class="option" onclick="nextQuestion(2, 35)">1-3 porciones</div>
+        <div class="option" onclick="nextQuestion(2, 50)">Casi nunca</div>
+    </div>
+</div>
+
+<!-- 🍽️ Pregunta 16 -->
+<div class="question-container" id="q16">
+    <div class="question">🍽️ ¿Compras productos locales y de temporada con frecuencia?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(2, 15)">Siempre</div>
+        <div class="option" onclick="nextQuestion(2, 25)">Más del 50%</div>
+        <div class="option" onclick="nextQuestion(2, 40)">Menos del 30%</div>
+        <div class="option" onclick="nextQuestion(2, 60)">Nunca</div>
+    </div>
+</div>
+
+<!-- 🍽️ Pregunta 17 -->
+<div class="question-container" id="q17">
+    <div class="question">🍽️ ¿Consumes productos orgánicos o de producción sostenible?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(2, 20)">Más del 70%</div>
+        <div class="option" onclick="nextQuestion(2, 35)">Alrededor del 50%</div>
+        <div class="option" onclick="nextQuestion(2, 50)">Menos del 30%</div>
+        <div class="option" onclick="nextQuestion(2, 70)">Nunca</div>
+    </div>
+</div>
+
+<!-- 🍽️ Pregunta 18 -->
+<div class="question-container" id="q18">
+    <div class="question">🍽️ ¿Tiras comida a la basura frecuentemente?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(2, 60)">Más de 3 veces/semana</div>
+        <div class="option" onclick="nextQuestion(2, 40)">1-2 veces/semana</div>
+        <div class="option" onclick="nextQuestion(2, 20)">Casi nunca</div>
+        <div class="option" onclick="nextQuestion(2, 10)">Planifico para no desperdiciar</div>
+    </div>
+</div>
+
+    
+    <!-- 🛒 Consumo -->
+
+      <!-- Pregunta 19 -->
+    <div class="question-container" id="q19">
+        <div class="question">🛒 ¿Reparas o donas objetos antes de desecharlos?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(3, 10)">Siempre</div>
+            <div class="option" onclick="nextQuestion(3, 30)">A veces</div>
+            <div class="option" onclick="nextQuestion(3, 60)">Casi nunca</div>
+        </div>
+    </div>
+
+<!-- 🛒 Pregunta 20 -->
+<div class="question-container" id="q20">
+    <div class="question">🛒 ¿Con qué frecuencia compras ropa nueva al mes?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(3, 10)">Menos de 2 prendas</div>
+        <div class="option" onclick="nextQuestion(3, 25)">3-5 prendas</div>
+        <div class="option" onclick="nextQuestion(3, 45)">6-10 prendas</div>
+        <div class="option" onclick="nextQuestion(3, 70)">Más de 10 prendas</div>
+    </div>
+</div>
+
+<!-- 🛒 Pregunta 21 -->
+<div class="question-container" id="q21">
+    <div class="question">🛒 ¿Adquieres productos de segunda mano o reutilizados?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(3, 20)">Más del 50% de mis compras</div>
+        <div class="option" onclick="nextQuestion(3, 35)">25-50% de mis compras</div>
+        <div class="option" onclick="nextQuestion(3, 50)">Menos del 25%</div>
+        <div class="option" onclick="nextQuestion(3, 70)">Nunca</div>
+    </div>
+</div>
+
+<!-- 🛒 Pregunta 22 -->
+<div class="question-container" id="q22">
+    <div class="question">🛒 ¿Usas bolsas reutilizables, botellas recargables y envases retornables?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(3, 10)">Siempre</div>
+        <div class="option" onclick="nextQuestion(3, 25)">Casi siempre</div>
+        <div class="option" onclick="nextQuestion(3, 45)">Ocasionalmente</div>
+        <div class="option" onclick="nextQuestion(3, 65)">Nunca</div>
+    </div>
+</div>
+
+<!-- 🛒 Pregunta 23 -->
+<div class="question-container" id="q23">
+    <div class="question">🛒 ¿Reparas o donas objetos antes de desecharlos?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(3, 15)">Siempre lo intento</div>
+        <div class="option" onclick="nextQuestion(3, 30)">Con algunos objetos</div>
+        <div class="option" onclick="nextQuestion(3, 50)">Rara vez</div>
+        <div class="option" onclick="nextQuestion(3, 70)">Nunca</div>
+    </div>
+</div>
+
+<!-- 🛒 Pregunta 24 -->
+<div class="question-container" id="q24">
+    <div class="question">🛒 ¿Tienes hábitos de consumo consciente (compras solo lo necesario)?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(3, 10)">Siempre planeo mis compras</div>
+        <div class="option" onclick="nextQuestion(3, 25)">Mayoría consciente</div>
+        <div class="option" onclick="nextQuestion(3, 45)">Compro por impulso a veces</div>
+        <div class="option" onclick="nextQuestion(3, 70)">No controlo mis compras</div>
+    </div>
+</div>
+
+
+
+    <!-- Resultado Final -->
+    <div class="question-container" id="result">
+        <h2>🌍 Tu Huella de Carbono Anual aproximada es:</h2>
+        <div id="score" class="co2-result">0 kg CO₂</div>
+        <div id="recommendations" class="recommendations-box"></div>
+        <button onclick="restartQuiz()">Repetir Test</button>
+    </div>
+
+
+    <script>
+        let currentQuestion = 1;
+        let totalScore = 0;
+        const totalQuestions = 20; // Total de preguntas
+        
+        const questions = [
+            { category: '🛻 Transporte', weight: 1.5 },
+            { category: '⚡ Energía', weight: 1.8 },
+            { category: '🍽️ Alimentación', weight: 1.2 },
+            { category: '🛒 Consumo', weight: 1.0 }
+        ];
+
+        function nextQuestion(categoryIndex, score) {
+            totalScore += score * questions[categoryIndex].weight;
+            
+            // Ocultar pregunta actual
+            document.getElementById(`q${currentQuestion}`).classList.remove('active-question');
+            
+            // Actualizar barra de progreso
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progress').style.width = `${progress}%`;
+            
+            // Mostrar siguiente pregunta o resultados
+            currentQuestion++;
+            if(currentQuestion <= totalQuestions) {
+                document.getElementById(`q${currentQuestion}`).classList.add('active-question');
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            // Cálculo final personalizado
+            let message;
+            if(totalScore < 5000) {
+                message = "🌱 ¡Excelente! Tu huella es baja";
+            } else if(totalScore < 15000) {
+                message = "🌍 Puedes mejorar algunos hábitos";
+            } else {
+                message = "🔥 Necesitas cambios significativos";
+            }
+            
+            document.getElementById('score').textContent = `${totalScore.toFixed(0)} kg CO₂`;
+            document.getElementById('recommendations').innerHTML = `
+                <h3>${message}</h3>
+                <p>Recomendaciones personalizadas...</p>
+            `;
+            document.getElementById('result').classList.add('active-question');
+        }
+
+        function restartQuiz() {
+            currentQuestion = 1;
+            totalScore = 0;
+            document.getElementById('progress').style.width = '0%';
+            document.getElementById('result').classList.remove('active-question');
+            document.getElementById('q1').classList.add('active-question');
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+      
+</body>
+</html>

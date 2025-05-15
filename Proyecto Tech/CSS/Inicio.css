@@ -1,0 +1,625 @@
+/*Configuración básica general*/
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html{
+    font-size: 16px;
+}
+
+
+body{
+    line-height: 1.6;
+    color:#333;
+    background-color: rgb(194, 194, 194);
+    width: 100%;
+    max-width: 100%;
+
+}
+
+
+@media (max-width:768px){
+    html{
+        font-size: 14px;
+        width: min(100%);
+    }
+
+    .Barra{
+        max-width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    img{
+        max-width: 100%;
+        height: auto;
+    
+    }
+    .Cardener{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .Cards{
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
+
+
+ 
+
+
+
+
+
+/*Encabezado de la página*/
+
+.Encabezado{
+    height: 50vh; /*Para la altura de la imagen*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.ContenidoEn{
+    display: flex;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    gap: 30px ;
+}
+
+.LogoPag{
+    justify-content: center;
+    align-content: center;
+}
+
+
+.ContenidoEn img{
+    height: 100px;
+    width: auto;
+}
+
+
+
+.ContenidoEn h1{
+    color: white;
+}
+
+/*  CARRUSEL DE FOTO    */
+
+.Carrusel-fondo{
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.slides-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: carrusel 16s infinite;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+}
+
+/*  ANIMACIÓN DEL CARRUSEL */
+
+@keyframes carrusel {
+    0%, 20% {opacity: 1;}
+    25%, 95% {opacity: 0;}
+    100% { opacity: 1;}
+}
+
+/*  Delay para cada slide */
+.slide:nth-child(1){animation-delay: 0s;}
+.slide:nth-child(2){animation-delay: 4s;}
+.slide:nth-child(3){animation-delay: 8s;}
+.slide:nth-child(4){animation-delay: 12s;}
+.slide:nth-child(5){animation-delay: 16;}
+
+/*  Estilos de las imégenes */
+.slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6); /*Oscurese las imágenes*/
+}
+
+
+
+
+
+/* --- APERTURA DE NARRA DE NAVEGACIÓN  */
+
+.Barra {
+    background: #2c3e50;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.nav-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*  Estilo para la imagen en el logo */
+
+.logo img{
+    height: 60px;
+    width: auto;
+    border-radius: 4px;
+}
+
+
+
+/* Menú normal (desktop) */
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.nav-links a:hover{
+    background-color: #455c73;
+}
+
+
+/* Dropdown desktop */
+.dropdown-parent {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #35495e;
+    min-width: 200px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.dropdown-parent.active .dropdown-menu {
+    display: block;
+    z-index: 1000;
+}
+
+/* Menú hamburguesa (oculto en desktop) */
+.hamburguesa {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.linea {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .hamburguesa {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 50%;
+        height: calc(100vh - 60px);
+        background: #2c3e50;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .dropdown-parent {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        background: #3a4d5f;
+        box-shadow: none;
+        display: none;
+        width: 50%;
+    }
+
+    .dropdown-parent.active .dropdown-menu {
+        display: block;
+    }
+
+    /* Animación hamburguesa a X */
+    .hamburguesa.active .linea:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburguesa.active .linea:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburguesa.active .linea:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+
+
+
+ 
+
+/* SECCIÓN DE INICIO E INFORMACIÓN*/
+
+.Inicio{
+    margin: 45px 45px;
+    margin-top: 3rem;
+    background-color: aliceblue;
+    padding: 40px;
+    box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/*  ORGANIZACIÓN DEL TEXTO E IMAGEN */
+
+.TextoImg{
+    display: flex;
+    justify-content: space-around;
+    text-align: justify;
+    margin-bottom: 50px;
+    align-items: center;
+    padding: 15px;
+}
+
+.text{
+    text-align: justify;
+    margin-right:30px ;
+}
+
+.TextoImg p{
+    margin-right: 30px;
+}
+
+.ImgEj{
+    height: 300px;
+    width: auto;
+    box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+
+/*  SECCIÓN DE CARDS    */
+.Enerh1{
+    text-align: center;
+    color: #275125;
+    padding: 20px;
+}
+
+/*
+.Cardener{
+    margin: 45px 45px;
+    margin-top: 3rem;
+    background-color: aliceblue;
+    padding: 40px;
+    box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align:center;
+    align-items:start;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+}*/
+
+
+.Cards{
+    display: grid;
+    /*width: 100%;*/
+    /*grid-template-columns: repeat(4, 1fr);*/
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /*flex-wrap: wrap;
+    align-items:center;
+    justify-items: center;
+    gap: 20px 10px;*/
+    gap: 3rem;
+    padding: 10px;
+
+}
+
+
+.Card{
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    overflow:hidden;
+    transition: transform 0.3s ease;
+    background:#308847;
+    padding: 20px;
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.Card:hover{
+    background-color: #888686;
+    transform: scale(1.1);
+}
+
+
+.Card-logo{
+    flex: 1;
+    min-width: 100%;
+    min-height: 180px; /* Altura mínima para imágenes*/
+    max-width: 100%;
+    object-fit: cover;
+    /*background-color:black;*/
+    border-radius: px solid black;
+    padding: 1px;
+}
+
+.Card-logo img{
+    max-width: 100%;
+    box-sizing: 100%;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    object-fit: contain;
+    padding:auto;
+}
+
+/*
+.Card-logo img{
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}*/
+
+.Cardtext{
+    padding:5px ;
+    text-align: center;
+}
+
+.Cardtitle{
+    height: 100%;
+    width: 100%;
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.Card h3{
+    color: #333;
+}
+
+
+.Botón{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #275125;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    color: white;
+    text-decoration: none;
+}
+
+.Botón:hover{
+    background-color:#308847 ;
+    transform: translateY(-5px);
+}
+
+
+/*  RESPONSIVE DE INICIO  */
+
+/* MEDIA QUERIES */
+@media (max-width: 992px) {
+
+    .Inicio{
+        margin: 5px 5px;
+    }
+
+    .TextoImg {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ImgEj {
+        order: 2;
+    
+    }
+
+    .text {
+        margin-right: 0;
+        padding: 0 0rem;
+        margin-right: 10PX;
+    }
+
+    li{
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .ImgFunc img {
+        max-width: 100%;
+        height: auto;
+        
+    }
+
+    .TextoImg-Func {
+        padding: 0 1rem;
+    }
+
+    .ImgEj {
+        max-width: 100%;
+    }
+
+    ul {
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 40px 15px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .text {
+        min-width: 100%;
+    }
+
+    .TextoImg,
+    .TextoImg-Func {
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+
+
+
+/*SECCIÓN DE GRÁFICA Y TEXTO DE EXPLICACIÓN*/
+
+.Gráficas{
+    padding: 40px 20ox;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ContenidoG{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+    background-color: pink;
+}
+
+.Espaciografica{
+    flex: 1;
+    min-width: 300px;
+    background-color: wheat;
+    border: 1px solid #ddd;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.Espaciografica img{
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+
+.Textografica{
+    flex: 1;
+    min-width: 300px;
+}
+
+
+
+
+
+/*FOOTER*/
+footer{
+    background-color: #3f4449;
+    padding: 20px;
+    margin-top: 20px; /*Empuja al footer al final*/
+    border-top: 1px solid #e0e0e0;
+}
+
+
+.Credcont{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+
+.Repres{   /*CONTENEDOR DELOGOS O IMGS*/
+   display: flex;
+   justify-content: space-around;
+   gap: 40px; /*Espacio entre logos*/
+   flex-wrap: wrap; /*Para que sea responsive*/
+   
+}
+
+.Repres img{ 
+    max-width: 300px; /*Controla el ancho de l aimg*/
+    height: auto; /*Mantiene la proporción, de altura, creo*/
+    object-fit: contain; /*Evita recorte de la imagen*/
+   /* filter: grayscale(100%); /* Cambia el color del contenido de la imagen*/
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.Repres img:hover{
+   /* filter: grayscale(0%); /*Efecto al pasar el mouse, vuelven lo colores*/
+    transform: scale(1.05);
+}

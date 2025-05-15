@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huella de Carbono</title>
+    <link rel="stylesheet" href="/CSS/Huella.css">
+</head>
+<body>
+     
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Huella de Carbono</h1>
+        </div>
+    </header>
+
+    <!--    BARRA DE NAVEGACIÓN   -->
+
+
+<section class="Barra">
+    <div class="nav-contenedor">
+        
+        <!-- Logo opcional -->
+        <div class="logo">
+<!-- <a href="#" style="color: white; text-decoration: none;">Energías Colombia</a> -->
+            <img src="/Imágenes/FondoPag.jfif" alt="Logo">
+        </div>
+
+        <!-- Menú hamburguesa -->
+        <div class="hamburguesa">
+            <div class="linea"></div>
+            <div class="linea"></div>
+            <div class="linea"></div>
+        </div>
+
+        <!-- Links de navegación -->
+        <ul class="nav-links">
+            <li><a href="/Componentes/Inicio.html">Inicio</a></li>
+            
+            <li class="dropdown-parent">
+                <a href="#" class="dropdown-toggle">Energías renovables ▼</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/Componentes/E-Solar.html">Solar</a></li>
+                    <li><a href="/Componentes/E-Eólica.html">Eólica</a></li>
+                    <li><a href="/Componentes/E-Hidroelectrica.html">Hidráulica</a></li>
+                    <li><a href="/Componentes/E-Bioc.html">Biocombustibles</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="/Componentes/Huella.html">Huella de carbono</a></li>
+            <li><a href="/Componentes/Gráficas.html">Datos para Colombia</a></li>
+            <li><a href="/Componentes/Equipo.html">Equipo y contactos</a></li>
+        </ul>
+    </div>
+</section>
+
+    <section class="Huella-Carbono">
+
+        <!--    SEPARADOR   -->
+        <div class="Espacio-Calculadora">
+
+            <div class="Huella">
+                <div class="Hella-img">
+                    <img src="/Imágenes/Huellailus.jpg" alt="Hulla de carbono">
+                </div>
+   
+                <div class="Huella-text">
+                    <h3>Conoce tu huella de carbono.</h3>
+                </div>                 
+            </div>
+
+            <div class="ConCal">
+
+                <div class="Calculadora-text">
+                    <h3>
+                        🌍 ¿Quieres descubrir cómo tus acciones afectan al planeta y <br>encontrar formas de reducir ese impacto? ♻️
+                        <br>✨ Vamos a calcular tu Huella de Carbono 🧮💨
+                    </h3>
+                </div> 
+
+                    <!--    PREGUNTAS   -->
+                <div>
+
+                    <div class="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+
+                    <!-- 🛻 Transporte -->
+       <!-- Pregunta 1 -->
+    <div class="question-container active-question" id="q1">
+        <div class="question">🛻 ¿Cuántos kilómetros recorres semanalmente en vehículo particular?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 50)">Menos de 50 km</div>
+            <div class="option" onclick="nextQuestion(0, 150)">50-250 km</div>
+            <div class="option" onclick="nextQuestion(0, 400)">Más de 250 km</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 2 -->
+    <div class="question-container" id="q2">
+        <div class="question">🛻 ¿Tu vehículo es a gasolina, diésel, híbrido o eléctrico?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 100)">Gasolina</div>
+            <div class="option" onclick="nextQuestion(0, 80)">Diésel</div>
+            <div class="option" onclick="nextQuestion(0, 30)">Híbrido</div>
+            <div class="option" onclick="nextQuestion(0, 10)">Eléctrico</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 3 -->
+    <div class="question-container" id="q3">
+        <div class="question">🛻 ¿Compartes tu vehículo con otras personas?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 20)">Siempre</div>
+            <div class="option" onclick="nextQuestion(0, 40)">Ocasionalmente</div>
+            <div class="option" onclick="nextQuestion(0, 0)">Nunca</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 4 -->
+    <div class="question-container" id="q4">
+        <div class="question">🛻 ¿Utilizas transporte público regularmente? ¿Cuántas veces por semana?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 20)">Siempre</div>
+            <div class="option" onclick="nextQuestion(0, 40)">Ocasionalmente</div>
+            <div class="option" onclick="nextQuestion(0, 0)">Nunca</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 5 -->
+    <div class="question-container" id="q5">
+        <div class="question">🛻 ¿Tienes bicicleta o usas medios de transporte no motorizados?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 20)">Siempre</div>
+            <div class="option" onclick="nextQuestion(0, 40)">Ocasionalmente</div>
+            <div class="option" onclick="nextQuestion(0, 0)">Nunca</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 6 -->
+    <div class="question-container" id="q6">
+        <div class="question">🛻 ¿Con qué frecuencia viajas en avión al año? (nacionales e internacionales)?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(0, 20)">Siempre</div>
+            <div class="option" onclick="nextQuestion(0, 40)">Ocasionalmente</div>
+            <div class="option" onclick="nextQuestion(0, 0)">Nunca</div>
+        </div>
+    </div>
+
+
+
+    <!-- Continuar con mismo patrón para todas las preguntas... -->
+
+    <!-- ⚡ Energía -->
+       <!-- Pregunta 7 -->
+    <div class="question-container" id="q7">
+        <div class="question">⚡ ¿Cuál es el promedio mensual de tu factura de energía eléctrica?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(1, 50)">Menos de $50</div>
+            <div class="option" onclick="nextQuestion(1, 100)">$50-$150</div>
+            <div class="option" onclick="nextQuestion(1, 200)">Más de $150</div>
+        </div>
+    </div>
+
+      <!-- Pregunta 8 -->
+    <div class="question-container" id="q8">
+        <div class="question">⚡ ¿Tu hogar tiene paneles solares u otra fuente de energía renovable?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(1, 10)">Si, totalmente renovable</div>
+            <div class="option" onclick="nextQuestion(1, 100)">Parcialmente renovable</div>
+            <div class="option" onclick="nextQuestion(1, 200)">No, solo energía convencional</div>
+        </div>
+    </div>
+
+    <!-- Pregunta 9 -->
+<div class="question-container" id="q9">
+    <div class="question">⚡ ¿Usas gas natural, leña, electricidad u otro para cocinar o calentar agua?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(1, 50)">Gas natural</div>
+        <div class="option" onclick="nextQuestion(1, 70)">Leña/carbón</div>
+        <div class="option" onclick="nextQuestion(1, 30)">Electricidad</div>
+        <div class="option" onclick="nextQuestion(1, 40)">Otro combustible</div>
+    </div>
+</div>
+
+<!-- Pregunta 10 -->
+<div class="question-container" id="q10">
+    <div class="question">⚡ ¿Utilizas electrodomésticos de bajo consumo energético (tipo A o superior)?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(1, 20)">Sí, todos</div>
+        <div class="option" onclick="nextQuestion(1, 40)">Algunos</div>
+        <div class="option" onclick="nextQuestion(1, 60)">No</div>
+    </div>
+</div>
+
+<!-- Pregunta 11 -->
+<div class="question-container" id="q11">
+    <div class="question">⚡ ¿Apagas los aparatos electrónicos cuando no los usas o los dejas en espera?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(1, 10)">Siempre apagados</div>
+        <div class="option" onclick="nextQuestion(1, 30)">Algunos en espera</div>
+        <div class="option" onclick="nextQuestion(1, 60)">Suelo dejarlos en standby</div>
+    </div>
+</div>
+
+<!-- Pregunta 12 -->
+<div class="question-container" id="q12">
+    <div class="question">⚡ ¿Aprovechas la luz natural y evitas encender luces innecesarias?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(1, 10)">Siempre aprovecho la luz natural</div>
+        <div class="option" onclick="nextQuestion(1, 30)">A veces uso luz artificial</div>
+        <div class="option" onclick="nextQuestion(1, 60)">Frecuentemente enciendo luces</div>
+    </div>
+</div>
+
+    <!-- 🍽️ Alimentación -->
+
+      <!-- Pregunta 13 -->
+    <div class="question-container" id="q13">
+        <div class="question">🍽️ ¿Con qué frecuencia consumes carne roja a la semana?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(2, 100)">Diariamente</div>
+            <div class="option" onclick="nextQuestion(2, 60)">3-4 veces</div>
+            <div class="option" onclick="nextQuestion(2, 30)">1-2 veces</div>
+            <div class="option" onclick="nextQuestion(2, 10)">Nunca</div>
+        </div>
+    </div>
+
+    <!-- 🍽️ Pregunta 14 -->
+<div class="question-container" id="q14">
+    <div class="question">🍽️ ¿Consumes productos lácteos con regularidad?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(2, 40)">Diariamente</div>
+        <div class="option" onclick="nextQuestion(2, 25)">3-4 veces/semana</div>
+        <div class="option" onclick="nextQuestion(2, 15)">Ocasionalmente</div>
+        <div class="option" onclick="nextQuestion(2, 5)">Nunca (vegano)</div>
+    </div>
+</div>
+
+<!-- 🍽️ Pregunta 15 -->
+<div class="question-container" id="q15">
+    <div class="question">🍽️ ¿Incluyes frutas, verduras y legumbres en tu dieta semanal?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(2, 10)">7+ porciones diarias</div>
+        <div class="option" onclick="nextQuestion(2, 20)">4-6 porciones</div>
+        <div class="option" onclick="nextQuestion(2, 35)">1-3 porciones</div>
+        <div class="option" onclick="nextQuestion(2, 50)">Casi nunca</div>
+    </div>
+</div>
+
+<!-- 🍽️ Pregunta 16 -->
+<div class="question-container" id="q16">
+    <div class="question">🍽️ ¿Compras productos locales y de temporada con frecuencia?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(2, 15)">Siempre</div>
+        <div class="option" onclick="nextQuestion(2, 25)">Más del 50%</div>
+        <div class="option" onclick="nextQuestion(2, 40)">Menos del 30%</div>
+        <div class="option" onclick="nextQuestion(2, 60)">Nunca</div>
+    </div>
+</div>
+
+<!-- 🍽️ Pregunta 17 -->
+<div class="question-container" id="q17">
+    <div class="question">🍽️ ¿Consumes productos orgánicos o de producción sostenible?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(2, 20)">Más del 70%</div>
+        <div class="option" onclick="nextQuestion(2, 35)">Alrededor del 50%</div>
+        <div class="option" onclick="nextQuestion(2, 50)">Menos del 30%</div>
+        <div class="option" onclick="nextQuestion(2, 70)">Nunca</div>
+    </div>
+</div>
+
+<!-- 🍽️ Pregunta 18 -->
+<div class="question-container" id="q18">
+    <div class="question">🍽️ ¿Tiras comida a la basura frecuentemente?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(2, 60)">Más de 3 veces/semana</div>
+        <div class="option" onclick="nextQuestion(2, 40)">1-2 veces/semana</div>
+        <div class="option" onclick="nextQuestion(2, 20)">Casi nunca</div>
+        <div class="option" onclick="nextQuestion(2, 10)">Planifico para no desperdiciar</div>
+    </div>
+</div>
+
+    
+    <!-- 🛒 Consumo -->
+
+      <!-- Pregunta 19 -->
+    <div class="question-container" id="q19">
+        <div class="question">🛒 ¿Reparas o donas objetos antes de desecharlos?</div>
+        <div class="options">
+            <div class="option" onclick="nextQuestion(3, 10)">Siempre</div>
+            <div class="option" onclick="nextQuestion(3, 30)">A veces</div>
+            <div class="option" onclick="nextQuestion(3, 60)">Casi nunca</div>
+        </div>
+    </div>
+
+<!-- 🛒 Pregunta 20 -->
+<div class="question-container" id="q20">
+    <div class="question">🛒 ¿Con qué frecuencia compras ropa nueva al mes?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(3, 10)">Menos de 2 prendas</div>
+        <div class="option" onclick="nextQuestion(3, 25)">3-5 prendas</div>
+        <div class="option" onclick="nextQuestion(3, 45)">6-10 prendas</div>
+        <div class="option" onclick="nextQuestion(3, 70)">Más de 10 prendas</div>
+    </div>
+</div>
+
+<!-- 🛒 Pregunta 21 -->
+<div class="question-container" id="q21">
+    <div class="question">🛒 ¿Adquieres productos de segunda mano o reutilizados?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(3, 20)">Más del 50% de mis compras</div>
+        <div class="option" onclick="nextQuestion(3, 35)">25-50% de mis compras</div>
+        <div class="option" onclick="nextQuestion(3, 50)">Menos del 25%</div>
+        <div class="option" onclick="nextQuestion(3, 70)">Nunca</div>
+    </div>
+</div>
+
+<!-- 🛒 Pregunta 22 -->
+<div class="question-container" id="q22">
+    <div class="question">🛒 ¿Usas bolsas reutilizables, botellas recargables y envases retornables?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(3, 10)">Siempre</div>
+        <div class="option" onclick="nextQuestion(3, 25)">Casi siempre</div>
+        <div class="option" onclick="nextQuestion(3, 45)">Ocasionalmente</div>
+        <div class="option" onclick="nextQuestion(3, 65)">Nunca</div>
+    </div>
+</div>
+
+<!-- 🛒 Pregunta 23 -->
+<div class="question-container" id="q23">
+    <div class="question">🛒 ¿Reparas o donas objetos antes de desecharlos?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(3, 15)">Siempre lo intento</div>
+        <div class="option" onclick="nextQuestion(3, 30)">Con algunos objetos</div>
+        <div class="option" onclick="nextQuestion(3, 50)">Rara vez</div>
+        <div class="option" onclick="nextQuestion(3, 70)">Nunca</div>
+    </div>
+</div>
+
+<!-- 🛒 Pregunta 24 -->
+<div class="question-container" id="q24">
+    <div class="question">🛒 ¿Tienes hábitos de consumo consciente (compras solo lo necesario)?</div>
+    <div class="options">
+        <div class="option" onclick="nextQuestion(3, 10)">Siempre planeo mis compras</div>
+        <div class="option" onclick="nextQuestion(3, 25)">Mayoría consciente</div>
+        <div class="option" onclick="nextQuestion(3, 45)">Compro por impulso a veces</div>
+        <div class="option" onclick="nextQuestion(3, 70)">No controlo mis compras</div>
+    </div>
+</div>
+
+
+
+    <!-- Resultado Final -->
+    <div class="question-container" id="result">
+        <h2>🌍 Tu Huella de Carbono Anual es:</h2>
+        <div id="score" class="co2-result">0 kg CO₂</div>
+        <div id="recommendations" class="recommendations-box"></div>
+        <button onclick="restartQuiz()">Repetir Test</button>
+    </div>
+                </div>
+
+            </div>
+                
+            
+        </div>
+
+
+        
+        
+
+
+        <!--    SEPARADOR   -->
+        <div class="Mensaje">
+            <div class="Título">
+                <h1>¡Mensaje importante!</h1>
+            </div>
+
+            <div class="Alerta">
+                
+                <div class="alerta-Img">
+                    <img class="ImgEj" src="/Imágenes/AlertaImg2.jpeg" alt="">
+                </div>
+
+                <div class="alerta-text">
+                    <p>
+                    Nuestras acciones cotidianas, desde cómo nos movemos y la energía que usamos hasta lo que compramos y comemos, liberan gases de efecto invernadero, principalmente dióxido de carbono. Esta "huella de carbono" se acumula en el aire, actuando como una manta que atrapa el calor del sol y eleva la temperatura global.
+                    <br><br>
+                    Este calentamiento del planeta ya no es algo que vendrá, sino una realidad que estamos viviendo. Se evidencia en eventos climáticos extremos como olas de calor más fuertes, incendios forestales, sequías extensas, el derretimiento rápido del hielo en los polos y el crecimiento del nivel del mar. Esto pone en peligro la naturaleza, nuestra comida, el agua que necesitamos y la salud de muchísimas personas.
+                    <br><br>
+                    El cambio climático, causado por esta crisis, hace más grandes las 
+                    diferencias sociales y económicas, daña la variedad de vida en la Tierra y amenaza la capacidad del planeta para mantenerse sano. Por eso, es crucial darnos cuenta de la urgencia y hacer algo al respecto.Calcular y disminuir nuestra huella de carbono es fundamental, eligiendo transportes amigables con el planeta, usando la energía con cuidado y apoyando formas de vida ecológicas. Ahora es el momento de actuar, porque nuestro futuro depende de ello.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!--    SEPARADOR   -->
+        <div class="Definición">
+
+            <div class="TítuloDef">
+                <h1> ¿Qué es la huella de carbono? </h1>
+            </div>
+
+            <div class="Definición-text">
+                   <div class="TextH">
+                    <p>
+                        La huella de carbono sirve para cuantificar la cantidad total de gases de efecto invernadero (GEI) que generamos, ya sea de manera directa, como al utilizar un vehículo o calefacción en el hogar, o de forma indirecta, considerando las emisiones derivadas de la producción de bienes y servicios que consumimos, como alimentos, ropa y dispositivos electrónicos. También se incluyen las emisiones vinculadas al transporte de estos productos y su disposición final.
+                        <br><br>
+                        Para comparar el impacto de distintos gases, dado que cada uno posee un potencial de calentamiento global diferente, la huella de carbono se expresa en toneladas de dióxido de carbono equivalente (CO₂e). Esto facilita el cálculo y análisis de todas las emisiones en un solo indicador.
+                        <br><br>            
+                        Evaluar nuestra huella de carbono es esencial para identificar las actividades o productos que más contribuyen a nuestra generación de GEI. Con esta información, podemos adoptar decisiones más responsables para minimizar nuestro impacto ambiental. Reducir nuestra huella de carbono es clave en la lucha contra el cambio climático, ya que el aumento de GEI en la atmósfera es la causa principal del calentamiento global, desencadenando múltiples efectos ecológicos, sociales y económicos que afectan a toda la sociedad.
+                    </p>
+                   </div>
+            </div>
+
+            <div class="Definición-Img">
+                <img class="ImgEj" src="/Imágenes/HuellaDefinición.jfif" alt="Definición1">
+                <img class="ImgEj" src="/Imágenes/HuellaDefinición2.jpg" alt="Definición2">                
+            </div>
+        </div>
+
+
+        <!--    SEPARADOR   -->
+        <div class="Mitigación">
+
+            <h1>¿Cómo puedes mitigar o disminuir la huella de carbono? </h1>
+    
+            <div class="Mitigación-cont"> 
+                 
+                <div class="Mitigación-text">              
+        
+
+                    <br>
+                    <div class="Clase">                         
+                        <h4> 🚗 Transporte:</h4> 
+
+                        <li>Usar transporte público, bicicleta o caminar en lugar del vehículo particular.</li>
+                        
+                        <li>Compartir el auto o hacer uso de apps de carpooling.</li>
+                        
+                        <li>Optar por vehículos eléctricos o híbridos si es posible.</li>
+                        
+                        <li>Mantener tu vehículo en buen estado para reducir el consumo de combustible.</li>
+
+                    </div>
+                        <br>
+                    <div class="Clase">
+                        <h4>⚡ Consumo de energía:</h4>
+
+                        <li> Ahorrar electricidad apagando luces y aparatos electrónicos cuando no se usan.</li>
+                        
+                        <li>Cambiar a bombillas LED y electrodomésticos de bajo consumo.</li>
+                        
+                        <li>Instalar paneles solares u optar por energías renovables cuando sea viable.</li>
+                        
+                        <li>Mejorar el aislamiento térmico en casas y oficinas para reducir el uso de <br> calefacción o aire acondicionado.</li>
+
+                    </div>
+
+                        <br>
+                    <div class="Clase">
+                        <h4>🍽️ Alimentación:</h4>
+
+                        <li>Reducir el consumo de carne roja y productos de origen animal,<br> ya que su producción genera altas emisiones.</li>
+                        
+                        <li> Elegir alimentos locales y de temporada.</li>
+                        
+                        <li> Evitar el desperdicio de alimentos.</li>
+                    </div>
+                        
+                    <br>
+                    <div class="Clase">
+                       <h4> 🛍️ Consumo responsable:</h4>
+
+                        <li>Comprar solo lo necesario.</li>
+                        
+                        <li>Elegir productos duraderos y reciclables.</li>
+                                                
+                        <li>Apoyar marcas con prácticas sostenibles.</li>
+                        
+                        <li> Reutilizar, reciclar y reparar en lugar de desechar.</li>
+
+                    </div>
+                        
+                    <br>
+                    <div class="Clase">
+                        <h4>🌍 Compensación:</h4>
+
+                       <li> Plantar árboles o apoyar proyectos de reforestación.</li>
+                        
+                        <li>Participar en programas de compensación de carbono.</li>
+                    </div>
+                
+                </div>
+
+                <div>
+                    <img class="ImgEj" src="/Imágenes/Mitigación.avif" alt="">
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+
+    <footer>
+    <divc class="Créditos">
+        <div class="Credcont"> 
+            <p>&copy; 2025 Análisis de datos. Derechos reservados.<br>
+             Esta página fue hecha en colaboración con:
+            </p>
+                <div class="Repres">
+                    <img src="/Imágenes/UdeA verde.png" alt="">
+                    <img src="/Imágenes/Mintic y TT.png" alt="">
+                 </div>
+        </div>
+    </div>
+    </footer>
+
+
+
+    <script>
+
+        // SCRIP DE LA CALCULADORA 
+
+        let currentQuestion = 1;
+        let totalScore = 0;
+        const totalQuestions = 20; // Total de preguntas
+        
+        const questions = [
+            { category: '🛻 Transporte', weight: 1.5 },
+            { category: '⚡ Energía', weight: 1.8 },
+            { category: '🍽️ Alimentación', weight: 1.2 },
+            { category: '🛒 Consumo', weight: 1.0 }
+        ];
+
+        function nextQuestion(categoryIndex, score) {
+            totalScore += score * questions[categoryIndex].weight;
+            
+            // Ocultar pregunta actual
+            document.getElementById(`q${currentQuestion}`).classList.remove('active-question');
+            
+            // Actualizar barra de progreso
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progress').style.width = `${progress}%`;
+            
+            // Mostrar siguiente pregunta o resultados
+            currentQuestion++;
+            if(currentQuestion <= totalQuestions) {
+                document.getElementById(`q${currentQuestion}`).classList.add('active-question');
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            // Cálculo final personalizado
+            let message;
+            if(totalScore < 5000) {
+                message = "🌱 ¡Excelente! Tu huella es baja";
+            } else if(totalScore < 15000) {
+                message = "🌍 Puedes mejorar algunos hábitos";
+            } else {
+                message = "🔥 Necesitas cambios significativos";
+            }
+            
+            document.getElementById('score').textContent = `${totalScore.toFixed(0)} kg CO₂`;
+            document.getElementById('recommendations').innerHTML = `
+                <h3>${message}</h3>
+                <p>Recomendaciones personalizadas...</p>
+            `;
+            document.getElementById('result').classList.add('active-question');
+        }
+
+        function restartQuiz() {
+            currentQuestion = 1;
+            totalScore = 0;
+            document.getElementById('progress').style.width = '0%';
+            document.getElementById('result').classList.remove('active-question');
+            document.getElementById('q1').classList.add('active-question');
+        }
+
+
+
+        //  SCRIP DE LA BARRA DE NAVEGACIÓN
+
+        
+          // SCRIP DE LA BARRA DE NAVEGACIÓN
+          const hamburguesa = document.querySelector('.hamburguesa');
+        const navLinks = document.querySelector('.nav-links');
+        let timeoutId;
+
+        // Menú hamburguesa
+        hamburguesa.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            hamburguesa.classList.toggle('active');
+        });
+
+        // Control dropdowns
+        document.querySelectorAll('.dropdown-toggle').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const dropdown = e.target.closest('.dropdown-parent');
+                const wasActive = dropdown.classList.contains('active');
+                
+                // Cerrar todos los dropdowns
+                document.querySelectorAll('.dropdown-parent').forEach(d => d.classList.remove('active'));
+                
+                // Toggle solo si no estaba activo
+                if (!wasActive) {
+                    dropdown.classList.add('active');
+                    if (window.innerWidth <= 768) {
+                        dropdown.querySelector('.dropdown-menu').style.display = 'block';
+                    }
+                }
+            });
+        });
+
+        // Cerrar menús al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-links')) {
+                navLinks.classList.remove('active');
+                hamburguesa.classList.remove('active');
+                document.querySelectorAll('.dropdown-parent').forEach(d => d.classList.remove('active'));
+            }
+        });
+
+        // Cerrar al seleccionar opción (mobile)
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                    hamburguesa.classList.remove('active');
+                    link.closest('.dropdown-parent').classList.remove('active');
+                }
+            });
+        });
+
+    </script>
+
+
+</body>
+</html>
